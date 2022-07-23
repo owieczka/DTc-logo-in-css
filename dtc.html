@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Walksee Logo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--<script charset="utf-8" type="module" src="js/main.js"></script>-->
+  <!--<link rel="stylesheet" href="css/reset.css" />-->
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      background: #f7f5ff;
+      overflow: hidden;
+    }
+
+    .dtc-logo {
+      display: inline-block;
+      position: relative;
+      
+      width: 200px;
+      height: 200px;
+      
+      /*outline: 1px solid red;*/ /*For Debug only*/
+
+      perspective: 1200px;
+      perspective-origin: 50% 50%;
+
+      --cicle-radius: calc(3 / 8);
+      --door-size: calc((2 / 3 + 0.05) * var(--cicle-radius));
+      --color: hsl(190, 100%, 55%);
+      /*--color: #19DAFF;*/
+    }
+
+    .dtc-logo::before {
+      content: '';
+      display: block;
+      position: relative;
+      
+      left: calc((1 - 2 * var(--cicle-radius)) * 50%);
+      top: calc((1 - 2 * var(--cicle-radius)) * 50%);
+      width: calc(2 * var(--cicle-radius) * 100%);
+      height: calc(2 * var(--cicle-radius) * 100%);
+      
+      /*outline: 1px solid red;*/ /*For Debug only*/
+      border-radius: 50%;
+      background: radial-gradient(circle at 33% 33%, #ffffff 0%, var(--color) 25%, #000000);
+    }
+
+    .dtc-logo::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: -30%;
+      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.4),rgba(0,0,0,0.1) 40%, rgba(0,0,0,0) 50%);
+      transform: rotateX(85deg) translateZ(-150px);
+      z-index: -1;
+    }
+
+    .dtc-logo .door {
+      content: "";
+      position: absolute;
+      display: block;      
+      left: calc(50% - var(--door-size) * 50%);
+      top: calc(50% - var(--door-size) * 4 / 3 * 50%);
+      width: calc(var(--door-size) * 100%);
+      height: calc(var(--door-size) * 4 / 3 * 100%);
+      border-radius: calc(var(--door-size) * 50%);
+      /*background-color: #FFFFFF;*/
+      background: white;
+      /*outline: red solid 1px;*/
+      box-shadow: inset 0 0 10px rgba(0,0,0,.9);
+      /*z-index: -1;*/
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="dtc-logo">
+      <div class="door"></div>
+    </div>
+    <div class="dtc-logo" style="--color: hsl(160, 100%, 55%)">
+      <div class="door"></div>
+    </div>
+
+    
+    <div class="dtc-logo" style="--color: gray">
+      <div class="door"></div>
+    </div>
+  </div>
+</body>
+</html>
